@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Before You Install — Momentum</title>
+<meta name="description" content="What Momentum needs to stream your Plex library to your car: a reachable server, the right Plex plan, and a direct network path.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="wordmark" href="index.html">MOMENTUM</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="setup.html" aria-current="page">Before You Install</a>
+      <a href="faq.html">Help &amp; FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Before you install</h1>
+  <p class="lede">Momentum streams from your own Plex server to your car over the internet. That means the server has to be reachable from outside your home network. Here is everything the app needs, and a two-minute test that predicts whether it will work.</p>
+
+  <h2>The two-minute test</h2>
+  <div class="card">
+    <p>Open the official Plex app on your phone. Turn off WiFi and any VPN, then play a music track over cellular.</p>
+    <p>That is exactly how your car connects. If that works, Momentum works. If it fails, fix remote access first (see below) before installing Momentum, because the car has no way around a server it cannot reach.</p>
+  </div>
+
+  <h2>Requirements</h2>
+
+  <h3>An Android Automotive OS vehicle or head unit</h3>
+  <p>Momentum is built for AAOS only. It does not run on phones or tablets, and it is not an Android Auto app. AAOS is the operating system built into the car itself (vehicles marketed as having "Google built-in"). Android Auto, which projects your phone onto the car screen, is a different platform.</p>
+
+  <h3>Plex Pass or a Remote Watch Pass</h3>
+  <p>Since April 2025, Plex requires a Plex Pass on the server, or a Remote Watch Pass on your account, to stream your own media remotely. Your car is always a remote connection, so without one of these Momentum cannot stream at all.</p>
+
+  <h3>Your own Plex Media Server with a music library</h3>
+  <p>And a Plex account with access to it. Momentum signs in with your Plex account the same way official Plex apps do.</p>
+
+  <h3>Remote Access enabled and reachable</h3>
+  <p>Either a port-forwarded direct connection or Plex Relay. Relay works, but it is bandwidth-limited, so high-resolution files will be converted when streaming over it. A direct connection is what full-quality playback needs. Plex's own guide to setting this up:
+  <a href="https://support.plex.tv/articles/200289506-remote-access/" rel="noopener">Plex Remote Access documentation</a>.</p>
+
+  <h3>A direct, public network path (no VPN or overlay networks)</h3>
+  <p>The car runs a locked system and cannot join a VPN or overlay network. A server reachable only through Tailscale, WireGuard, ZeroTier, or a similar overlay address will not work from the car, even though it works from your phone with the VPN app installed. The server needs to be reachable at a public address.</p>
+
+  <div class="callout">
+    <strong>If something is not working:</strong> Momentum tells you on screen when it cannot reach your server rather than failing silently, and the app's built-in Connection Test (in Settings) will point at which step is failing. The <a href="faq.html">Help &amp; FAQ</a> page covers the common cases.
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>
+      <a href="setup.html">Requirements</a> ·
+      <a href="faq.html">Help &amp; FAQ</a> ·
+      <!-- TODO: point at the real privacy policy URL -->
+      <a href="#">Privacy Policy</a>
+    </p>
+    <!-- TODO: switch to support@momentumcar.app once email forwarding is set up -->
+    <p>Support: <a href="mailto:wmmunn@gmail.com">wmmunn@gmail.com</a></p>
+    <p>Momentum is an independent app and is not affiliated with Plex, Inc. Plex is a trademark of Plex, Inc.</p>
+  </div>
+</footer>
+
+</body>
+</html>

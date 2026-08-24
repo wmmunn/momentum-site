@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help &amp; FAQ — Momentum</title>
+<meta name="description" content="Answers to common Momentum questions: server unreachable, quality fallback, relay connections, Android Auto, and diagnostics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="wordmark" href="index.html">MOMENTUM</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="setup.html">Before You Install</a>
+      <a href="faq.html" aria-current="page">Help &amp; FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Help &amp; FAQ</h1>
+  <p class="lede">Most problems come down to one question: can the car reach your server right now? Start with the Connection Test in the app's settings. It runs the same checks Momentum uses internally and tells you in plain language which step failed.</p>
+
+  <!-- DRAFT: these answers are starting points. Expand each from real tester
+       cases, and add new entries as support questions repeat. -->
+
+  <details>
+    <summary>The app says my server is unreachable</summary>
+    <div class="answer">
+      <p>Momentum reaches your server the same way the official Plex app on your phone does over cellular. Run the two-minute test on the <a href="setup.html">Before You Install</a> page: official Plex app, WiFi off, VPN off, play a track. If that fails, the problem is server reachability, not the car. Check Plex's Remote Access page on your server; it should read "Fully accessible outside your network".</p>
+      <p>If the phone test works but the car still cannot connect, run the in-app Connection Test and note which of its checks fails. That result is the fastest thing to include if you contact support.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Why did my music quality drop, or a track play as MP3?</summary>
+    <div class="answer">
+      <p>When the connection cannot sustain a file's full bitrate, Momentum automatically falls back to a converted stream rather than stopping playback. This is most common on Plex Relay connections, which are bandwidth-limited by Plex, and on weak cellular stretches. Your files on the server are never touched; the conversion happens in transit, and direct play resumes when conditions allow.</p>
+      <p>If this happens constantly, check whether your server is connecting via Relay instead of a direct port-forwarded connection.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Does Momentum work with Android Auto?</summary>
+    <div class="answer">
+      <p>No, and there is no Android Auto version planned. Momentum is built natively for Android Automotive OS, the operating system inside cars with Google built-in. If your car uses Android Auto (phone projection), the official Plexamp app covers that platform well.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can I use Tailscale, WireGuard, or another VPN to reach my server?</summary>
+    <div class="answer">
+      <p>No. The car runs a locked system that cannot join a VPN or overlay network, so a server reachable only at an overlay address will not work from the vehicle, even though it works from devices with the VPN client installed. The server needs a public path: port-forwarded Remote Access, or Plex Relay.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Why does playback pause or skip in weak coverage?</summary>
+    <div class="answer">
+      <p>Momentum buffers ahead aggressively, so short gaps in cellular coverage usually pass unheard. In a longer outage the app holds your place, tells you on screen that the connection was lost, and resumes when the network returns. If you regularly drive through dead zones and hear interruptions, lower-bitrate files will ride through longer gaps than high-resolution ones, simply because the same buffer holds more seconds of audio.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>What data does Momentum collect?</summary>
+    <div class="answer">
+      <!-- TODO: link the privacy policy and keep this consistent with the
+           Play Data safety form. Summarize: crash reporting + diagnostics
+           logs, what they contain, what they never contain. -->
+      <p>Momentum includes crash reporting and diagnostic logging so problems can actually be fixed on a platform with no debugging access. Diagnostics never include your Plex password, and stream tokens are redacted from logs. The full details are in the <a href="#">privacy policy</a>.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>I found a bug, or something looks wrong</summary>
+    <div class="answer">
+      <p>Use Send Diagnostics in the app's settings right after you see the problem, then email a short description of what happened. The diagnostic log is what makes car-side problems fixable, and sending it close to the incident matters because it captures a rolling window.</p>
+      <!-- TODO: switch to support@momentumcar.app once forwarding is live -->
+      <p>Support: <a href="mailto:wmmunn@gmail.com">wmmunn@gmail.com</a></p>
+    </div>
+  </details>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>
+      <a href="setup.html">Requirements</a> ·
+      <a href="faq.html">Help &amp; FAQ</a> ·
+      <!-- TODO: point at the real privacy policy URL -->
+      <a href="#">Privacy Policy</a>
+    </p>
+    <p>Support: <a href="mailto:wmmunn@gmail.com">wmmunn@gmail.com</a></p>
+    <p>Momentum is an independent app and is not affiliated with Plex, Inc. Plex is a trademark of Plex, Inc.</p>
+  </div>
+</footer>
+
+</body>
+</html>

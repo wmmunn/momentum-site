@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Momentum — Plex Music for Cars</title>
+<meta name="description" content="Momentum streams your own Plex music library, in full quality, natively on Android Automotive OS. No phone, no cables, no projection.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="wordmark" href="index.html">MOMENTUM</a>
+    <nav>
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="setup.html">Before You Install</a>
+      <a href="faq.html">Help &amp; FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Your Plex music library, playing natively in your car.</h1>
+  <p class="lede">No phone, no cables, no projection. Momentum signs in with your Plex account and streams your own library straight to your Android Automotive OS vehicle, in full quality.</p>
+
+  <!-- TODO: replace # with the real Play Store URL before publishing.
+       Expected: https://play.google.com/store/apps/details?id=com.williammunn.aaos.momentum
+       (verify the package id against the Play Console before shipping this link) -->
+  <p>
+    <a class="btn" href="#">Get it on Google Play</a>
+    <a class="btn secondary" href="setup.html">Check the requirements first</a>
+  </p>
+
+  <h2>What Momentum does</h2>
+  <ul>
+    <li>Direct-play streaming that leaves your files untouched. Full-quality FLAC arrives as FLAC. Your music is never needlessly transcoded.</li>
+    <li>Automatic server discovery that reconnects as your car moves between networks.</li>
+    <li>Browse your library by playlists, artists, albums, or genres. Typed search when parked.</li>
+    <li>Voice control: say "play [song]", "play [artist]", "play [playlist]", or "play [genre]".</li>
+    <li>Shuffle, repeat, a live Playing Next queue, and resume across power cycles.</li>
+    <li>Tag the current track to a Plex playlist for later, right from the car.</li>
+    <li>Driving-safety gating built for AAOS: browsing and search lock while moving; playback and voice stay available.</li>
+  </ul>
+
+  <h2>Momentum Pro</h2>
+  <p>Everything above is free and stays free. Pro is a one-time purchase, no subscription, that adds:</p>
+  <ul>
+    <li><strong>Crossfade</strong> — two independent decoders with real overlap. Tracks from the same album still play gapless, so records flow the way they were sequenced.</li>
+    <li><strong>Two servers at once</strong> — pair a second Plex server, browse both from the car, and move playback between them without stopping the music.</li>
+    <li><strong>Sonic stations</strong> — build a station from whatever is playing, with the similarity range and length under your control.</li>
+  </ul>
+
+  <div class="callout">
+    <strong>One thing to check before installing:</strong> your car streams over the internet, so your Plex server must be reachable from outside your home network. The two-minute test and the full requirements are on the <a href="setup.html">Before You Install</a> page.
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>
+      <a href="setup.html">Requirements</a> ·
+      <a href="faq.html">Help &amp; FAQ</a> ·
+      <!-- TODO: point at the real privacy policy URL (currently in the app-policies repo) -->
+      <a href="#">Privacy Policy</a>
+    </p>
+    <!-- TODO: switch to support@momentumcar.app once email forwarding is set up -->
+    <p>Support: <a href="mailto:wmmunn@gmail.com">wmmunn@gmail.com</a></p>
+    <p>Momentum is an independent app and is not affiliated with Plex, Inc. Plex is a trademark of Plex, Inc.</p>
+  </div>
+</footer>
+
+</body>
+</html>

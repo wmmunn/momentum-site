@@ -1,0 +1,147 @@
+/* Momentum site — shared stylesheet.
+   Dark + gold to match the in-app look. No frameworks, no build step. */
+
+:root {
+  --bg: #121212;
+  --bg-card: #1c1c1e;
+  --text: #e8e6e1;
+  --text-dim: #9b968c;
+  --gold: #c9a24b;
+  --gold-dim: #8a7136;
+  --border: #2c2c2e;
+  --max-width: 46rem;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
+
+/* Header / nav */
+header {
+  border-bottom: 1px solid var(--border);
+  padding: 1.1rem 1.25rem;
+}
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+.wordmark {
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  margin-left: 1.25rem;
+  font-size: 0.92rem;
+}
+nav a:hover, nav a[aria-current="page"] { color: var(--gold); }
+
+/* Typography */
+h1 {
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 2.5rem 0 0.5rem;
+}
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin: 2.5rem 0 0.75rem;
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.75rem 0 0.5rem;
+}
+p { margin: 0.75rem 0; }
+a { color: var(--gold); }
+.lede { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2rem; }
+
+ul { padding-left: 1.25rem; }
+li { margin: 0.4rem 0; }
+
+/* Cards and callouts */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 1.3rem;
+  margin: 1.25rem 0;
+}
+.callout {
+  border-left: 3px solid var(--gold);
+  background: var(--bg-card);
+  border-radius: 0 10px 10px 0;
+  padding: 0.9rem 1.2rem;
+  margin: 1.5rem 0;
+}
+.callout strong { color: var(--gold); }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #121212;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.65rem 1.4rem;
+  border-radius: 8px;
+  margin: 0.5rem 0.75rem 0.5rem 0;
+}
+.btn.secondary {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+}
+
+/* FAQ */
+details {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-card);
+  margin: 0.75rem 0;
+  padding: 0;
+}
+details summary {
+  cursor: pointer;
+  padding: 0.85rem 1.2rem;
+  font-weight: 600;
+  list-style-position: inside;
+}
+details[open] summary { color: var(--gold); }
+details .answer { padding: 0 1.2rem 1rem; }
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  padding: 1.5rem 1.25rem 2.5rem;
+  color: var(--text-dim);
+  font-size: 0.88rem;
+}
+.footer-inner { max-width: var(--max-width); margin: 0 auto; }
+footer a { color: var(--text-dim); }
+footer a:hover { color: var(--gold); }
