@@ -55,7 +55,9 @@
   <details>
     <summary>Can I use Tailscale, WireGuard, or another VPN to reach my server?</summary>
     <div class="answer">
-      <p>No. The car runs a locked system that cannot join a VPN or overlay network, so a server reachable only at an overlay address will not work from the vehicle, even though it works from devices with the VPN client installed. The server needs a public path: port-forwarded Remote Access, or Plex Relay.</p>
+      <p>Not directly, with one real exception. The car runs a locked system that cannot join a VPN or overlay network, so a server reachable only at a private overlay address (a Tailscale 100.x address, a WireGuard peer, ZeroTier) will not work from the vehicle, even though it works from your phone with the VPN app installed.</p>
+      <p>The exception is tunnels that publish a public endpoint, such as Tailscale Funnel or Cloudflare Tunnel. Those give your server a publicly reachable address, which the car can use like any other public path, and some Momentum users run this way. Two caveats if you do: the tunnel's public URL needs to be added to your Plex server's "Custom server access URLs" (Settings → Network) so apps can discover it, and the tunnel becomes part of your streaming path, so its bandwidth limits or outages will look like an unreachable server from the car.</p>
+      <p>A port-forwarded direct connection is still the fastest and most reliable option.</p>
     </div>
   </details>
 

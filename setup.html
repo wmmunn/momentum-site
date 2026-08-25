@@ -47,8 +47,8 @@
   <p>Either a port-forwarded direct connection or Plex Relay. Relay works, but it is bandwidth-limited, so high-resolution files will be converted when streaming over it. A direct connection is what full-quality playback needs. Plex's own guide to setting this up:
   <a href="https://support.plex.tv/articles/200289506-remote-access/" rel="noopener">Plex Remote Access documentation</a>.</p>
 
-  <h3>A direct, public network path (no VPN or overlay networks)</h3>
-  <p>The car runs a locked system and cannot join a VPN or overlay network. A server reachable only through Tailscale, WireGuard, ZeroTier, or a similar overlay address will not work from the car, even though it works from your phone with the VPN app installed. The server needs to be reachable at a public address.</p>
+  <h3>A network path the car can reach</h3>
+  <p>The car runs a locked system and cannot join a VPN or overlay network. A server reachable only at a private overlay address (Tailscale, WireGuard, ZeroTier) will not work from the car, even though it works from your phone with the VPN app installed. The server needs a publicly reachable address: port forwarding, Plex Relay, or a published tunnel such as Tailscale Funnel or Cloudflare Tunnel (see the <a href="faq.html">FAQ</a> for the tunnel caveats).</p>
 
   <div class="callout">
     <strong>If something is not working:</strong> Momentum tells you on screen when it cannot reach your server rather than failing silently, and the app's built-in Connection Test (in Settings) will point at which step is failing. The <a href="faq.html">Help &amp; FAQ</a> page covers the common cases.
