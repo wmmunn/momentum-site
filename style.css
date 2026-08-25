@@ -134,6 +134,26 @@ details summary {
 details[open] summary { color: var(--gold); }
 details .answer { padding: 0 1.2rem 1rem; }
 
+/* Screenshots */
+.shot {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin: 1.5rem 0;
+}
+.shot-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.shot-row .shot { margin: 0; }
+@media (max-width: 600px) {
+  .shot-row { grid-template-columns: 1fr; }
+}
+
 /* Footer */
 footer {
   border-top: 1px solid var(--border);
