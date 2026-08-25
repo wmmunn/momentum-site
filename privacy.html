@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Momentum</title>
+<meta name="description" content="Momentum's privacy policy: what the app collects (crash reports, diagnostic logs), what it never collects, and how to delete your data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="wordmark" href="index.html">MOMENTUM</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="setup.html">Before You Install</a>
+      <a href="faq.html">Help &amp; FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Privacy Policy — Momentum</h1>
+  <p class="lede">Last updated: July 22, 2026 &nbsp;·&nbsp; Developer: William Munn (wmmunn)</p>
+
+  <h2>Overview</h2>
+  <p>Momentum ("the App") is a music player for Android Automotive OS. It streams audio from your own Plex Media Server after you sign in with Plex. The App is intended for in-vehicle Android Automotive head units and is not offered for phones on Google Play. This policy describes what information the App and its developer collect.</p>
+  <p>Contact: <a href="mailto:wmmunn@gmail.com">wmmunn@gmail.com</a></p>
+
+  <h2>What the App Does</h2>
+  <ul>
+    <li>You sign in with Plex (OAuth at app.plex.tv). Momentum stores your Plex access token on your device so it can reach your server.</li>
+    <li>Momentum does not host your music, playlists, or library. Playback goes directly between your device and your Plex server.</li>
+    <li>The App is intended for in-car Android Automotive head units.</li>
+  </ul>
+
+  <h2>Information We Collect</h2>
+
+  <h3>Crash reports (Google Firebase Crashlytics)</h3>
+  <p>If the App crashes or hits certain errors, Firebase Crashlytics sends a report to the developer, including:</p>
+  <ul>
+    <li>Stack trace and error details</li>
+    <li>Device model, manufacturer, Android version, app version, language/region, and basic device state (e.g. free memory)</li>
+    <li>Limited non-identifying app context: current track or playlist name, whether the server connection was WAN / LAN / unresolved, stream format, and error codes</li>
+  </ul>
+  <p>We do not send to Crashlytics: your Plex username, password, email, Plex token, server URL or IP address, or your search text. We do not use Firebase Analytics or other usage-tracking SDKs.</p>
+
+  <h3>Diagnostic logs (developer-operated server)</h3>
+  <p>To keep in-vehicle playback working, the App collects a diagnostic log and uploads it to a private server operated by the developer. Uploads happen:</p>
+  <ul>
+    <li>automatically, a small number of times during a driving session, and</li>
+    <li>when you tap "Send Diagnostics."</li>
+  </ul>
+  <p>The diagnostic log may include: app version, network connection type and quality, server-connection outcomes, error codes, device and app integrity signals, and the names of tracks, artists, or playlists involved when an error occurs. Your Plex authentication token is removed from the log before it leaves your device.</p>
+  <p>Retention: Uploaded diagnostic logs are automatically deleted after 14 days.</p>
+  <p>Security: The upload server records the connecting IP address only to rate-limit and block abusive traffic.</p>
+
+  <h3>On-device diagnostic log</h3>
+  <p>The App also keeps a diagnostic log on the device, viewable in the App's settings. This on-device copy can contain sensitive details (such as server addresses), so avoid sharing it publicly. The copy uploaded to the developer's server has the Plex token removed as described above.</p>
+
+  <h2>Information We Do NOT Collect</h2>
+  <ul>
+    <li>We do not sell your data.</li>
+    <li>We do not run behavioral advertising.</li>
+    <li>We do not store your listening history for analytics or profiling. Track and playlist names appear in diagnostic logs only in connection with errors, are used solely to diagnose and fix playback problems, and are deleted after 14 days.</li>
+  </ul>
+
+  <h2>Third-Party Services</h2>
+  <ul>
+    <li>Plex: sign-in and streaming are subject to Plex's privacy policy (plex.tv).</li>
+    <li>Google Firebase Crashlytics: processes crash data as described above, under Google's terms.</li>
+    <li>Google Play Integrity: the App may attach a Play Integrity token to diagnostic uploads to confirm the request comes from a genuine, unmodified copy of the App.</li>
+  </ul>
+
+  <h2>Deleting Your Data</h2>
+  <ul>
+    <li>On your device: Android Settings → Apps → Momentum → Storage → Clear storage (or Clear data). This removes the Plex token, playlist slots, bookmarks, and on-device diagnostics. Your Plex account and library are unchanged.</li>
+    <li>Uploaded diagnostic logs: automatically deleted after 14 days. To request earlier deletion, email <a href="mailto:wmmunn@gmail.com">wmmunn@gmail.com</a> with subject "Momentum data deletion request," your device model, and approximate use date.</li>
+    <li>Crash reports (Crashlytics): email the same address; we will delete associated reports where we control them.</li>
+  </ul>
+
+  <h2>Children's Privacy</h2>
+  <p>Momentum is not directed at children.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>If this policy is updated, the revised version will be posted at this page with an updated effective date.</p>
+
+  <h2>Contact</h2>
+  <p>William Munn — <a href="mailto:wmmunn@gmail.com">wmmunn@gmail.com</a> · GitHub: <a href="https://github.com/wmmunn" rel="noopener">github.com/wmmunn</a></p>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>
+      <a href="setup.html">Requirements</a> ·
+      <a href="faq.html">Help &amp; FAQ</a> ·
+      <a href="privacy.html">Privacy Policy</a>
+    </p>
+    <!-- TODO: switch to support@momentumcar.app once email forwarding is set up -->
+    <p>Support: <a href="mailto:wmmunn@gmail.com">wmmunn@gmail.com</a></p>
+    <p>Momentum is an independent app and is not affiliated with Plex, Inc. Plex is a trademark of Plex, Inc.</p>
+  </div>
+</footer>
+
+</body>
+</html>
