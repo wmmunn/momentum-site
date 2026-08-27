@@ -26,7 +26,7 @@
   <h1>Help &amp; FAQ</h1>
   <p class="lede">Most problems come down to one question: can the car reach your server right now? Start with the Connection Test in the app's settings. It runs the same checks Momentum uses internally and tells you in plain language which step failed.</p>
 
-  <img class="shot" src="images/connection-test.webp" alt="Momentum's built-in Connection Test showing three passing checks: internet connection, pinned server address, and account access" width="1408" height="792" loading="lazy">
+  <img class="shot" src="images/connection-test.webp" alt="Momentum's built-in Connection Test: a green verdict reading Reachable, the server's current connection and address, four passing checks — internet, server address lookup, Plex server, and account access — and a list of every address Plex publishes for each server" width="1408" height="792" loading="lazy">
 
   <!-- DRAFT: these answers are starting points. Expand each from real tester
        cases, and add new entries as support questions repeat. -->
@@ -40,10 +40,50 @@
   </details>
 
   <details>
+    <summary>What do the Connection Test's checks actually mean?</summary>
+    <div class="answer">
+      <p><strong>Internet</strong> — whether the car has a working connection at all. This is tested against Plex's own servers. A failure here means the car is offline; nothing is wrong with your server.</p>
+      <p><strong>Server address lookup</strong> — whether your server's address can be translated into a network address. A failure is a DNS problem, usually in the car's network or a router setting, and not something Plex controls.</p>
+      <p><strong>Plex server</strong> — whether your server answered. This is the one that matters most. If it fails, the checks below it could not run.</p>
+      <p><strong>Account access</strong> — whether your server accepted your Plex account. "Not checked — server didn't answer" means the server never replied, so nothing about your account was tested. A real failure here reads "Rejected (not authorized)" and means either remote streaming needs a Plex Pass, or a shared server needs access granted by its owner.</p>
+      <p><strong>Available paths</strong> — every address Plex publishes for each of your servers, and which of them answered. "0 of 4 addresses answering" means none of the routes to that server worked from the car. If a second server shows addresses answering, you can switch to it in Settings.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Plex publishes a direct address for my server, but it didn't answer</summary>
+    <div class="answer">
+      <p>This means Plex knows a public address for your server and is telling clients to use it, but nothing responded there. The server is running and talking to Plex; the route in from outside is broken.</p>
+      <p>The usual cause is a port forward that stopped working. Routers can drop forwards when they restart (depends on how it was configured), and a forward also breaks silently when the server's local address changes, which happens on its own if the server gets its address automatically. The durable fix is to give the server a fixed local address in your router's settings, then re-create the forward to that address.</p>
+      <p>Also worth checking: that the server is awake and not asleep, and that Plex's Remote Access page still reads "Fully accessible outside your network". If you have recently changed router or internet provider, the address Plex is publishing may simply be out of date. Plex will catch up on its own, though it can take a while.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Plex is only advertising a local address for my server</summary>
+    <div class="answer">
+      <p>A local address only works inside your house, and your car connects from outside it. Plex has no public route to hand out, so there is nothing for the car to reach.</p>
+      <p>Open Plex's Settings, then Remote Access. It should read "Fully accessible outside your network". If Remote Access is switched off, turn it on, tick "Manually specify public port", and forward that port on your router to the machine running Plex. A fixed local address for the server makes that forward survive; if the server's address changes on its own, the forward stops pointing anywhere.</p>
+      <p>If you have just enabled it, give it a few minutes. Plex can be slow to publish a new address, and the car will find it once it appears.</p>
+      <p>If Remote Access is on and still cannot get a public route, your internet provider may not be giving you one. That is a different situation, covered below.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>My provider gives my server an address shared with other customers</summary>
+    <div class="answer">
+      <p>Shared addresses, sometimes called carrier-grade NAT, cannot accept incoming connections. No port forward will help, because there is no port to forward to. This is not something you have set up wrong; plenty of providers do it by default.</p>
+      <p>There are two ways out. The first is to ask your provider whether they can give the server its own public address. Some will, sometimes free and sometimes for a small charge, and some will not offer it at all. This varies by country and provider more than by anything you can control.</p>
+      <p>The second is a tunnel, which gives your server a public address without needing one from your provider. Tailscale Funnel is the simplest of these and is known to work with Momentum. Note that this is different from plain Tailscale or WireGuard, which the car cannot join.</p>
+      <p>If neither is possible, Plex Relay will still work. It is slower and caps quality, but it plays.</p>
+    </div>
+  </details>
+
+  <details>
     <summary>Why did my music quality drop, or a track play as MP3?</summary>
     <div class="answer">
-      <p>When the connection cannot sustain a file's full bitrate, Momentum automatically falls back to a converted stream rather than stopping playback. This is most common on Plex Relay connections, which are bandwidth-limited by Plex, and on weak cellular stretches. Your files on the server are never touched; the conversion happens in transit, and direct play resumes when conditions allow.</p>
-      <p>If this happens constantly, check whether your server is connecting via Relay instead of a direct port-forwarded connection.</p>
+      <p>If the file is FLAC and it still played as MP3, the connection could not carry it at full bitrate, so Momentum switched to a converted stream rather than stopping playback. This is most common on Plex Relay connections, which are bandwidth-limited by Plex, and on weak cellular stretches. Your files on the server are never touched; the conversion happens in transit, and direct play resumes when conditions allow.</p>
+      <p>If this happens constantly, check whether your server is connecting via Relay instead of a direct port-forwarded connection. The Connection Test in the app's settings will tell you which.</p>
     </div>
   </details>
 
